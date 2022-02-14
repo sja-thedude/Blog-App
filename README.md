@@ -3,7 +3,6 @@ The Blog app is a classic example of a blog website. Created a fully functional 
 
 ## Built With
 
-- Ruby
 - Ruby On Rails
 
 ## To get a local copy run the following steps:
@@ -14,11 +13,19 @@ The Blog app is a classic example of a blog website. Created a fully functional 
 - Open the folder with your code editor
 
 ## To run the tests
-- Add to the terminal `rspec spec spec/filename.rb`
+
+Install rspec with:
+`bundle install`
+and
+`rails generate rpesc:install`
+
+Run tests with:
+`rspec spec`
 
 ## To get started-:
 
 - Run `bundle install` or `bundle i` to install the dependencies
+- Run `rails new Project --database=postgresql` to create a new project with Postgresql database
 - Run `rails s` to run the code!
 - Run `rubocop` to find and fix linters
 
@@ -26,7 +33,7 @@ The Blog app is a classic example of a blog website. Created a fully functional 
 
 - GitHub: [@githubhandle](https://github.com/sja-thedude)
 - Twitter: [@twitterhandle](https://twitter.com/sja_thedude)
-- LinkedIn: [LinkedIn](https://linkedin.com/in/sja)
+- LinkedIn: [LinkedIn](https://linkedin.com/in/sja-thedude)
 
 ## 🤝 Contributing
 
