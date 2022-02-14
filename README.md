@@ -14,7 +14,24 @@ The Blog app is a classic example of a blog website. Created a fully functional 
 - Open the folder with your code editor
 
 ## To run the tests
-- Add to the terminal `rspec spec spec/filename.rb`
+
+Put
+````
+gem 'rails-controller-testing'
+gem 'rspec-rails'
+````
+in your Gemfile
+Run:
+````
+rails generate rspec:install
+````
+Run:
+````
+rails generate controller posts index show 
+````
+`````
+rails generate controller users index show 
+`````
 
 ## To get started-:
 
