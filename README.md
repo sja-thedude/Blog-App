@@ -28,7 +28,7 @@ Run tests with:
 - Run `rails new Project --database=postgresql` to create a new project with Postgresql database
 - Run `rails s` to run the code!
 - Run `rubocop` to find and fix linters
-- Run `rails db:migrate` for database setup
+- Run `rails db:migrate` `rails db:create` for database setup
 
 👤 **SYEDA JUVERIA AFREEN**
 
