@@ -33,7 +33,7 @@
   width: 100%;
 }
 
-.comment-con >texarea {
+.comment-con > textarea {
   width: 80%;
   height: 85px;
 }
