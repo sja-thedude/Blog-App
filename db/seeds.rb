@@ -28,6 +28,8 @@ post7 = Post.create(user_id: 6, title: 'Cats and Dogs 2', text: 'Lorem ipsum dol
 comment1 = Comment.create(text: "great", user: user2, post:post1)
 comment2 = Comment.create(text: "hello", user: user2, post:post2)
 
+Like.create(user_id: 1, post: post1)
+
 # user1.comments.create!(text: 'Wow', post: post1)
 # user1.comments.create!(text: 'Well Done 👏👏👏', post: post1)
 # user1.comments.create!(text: 'Love 💓 it!!!', post: post1)
