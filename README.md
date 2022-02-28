@@ -36,6 +36,12 @@ Run tests with:
 - Twitter: [@twitterhandle](https://twitter.com/sja_thedude)
 - LinkedIn: [LinkedIn](https://linkedin.com/in/sja-thedude)
 
+👤 **AKINLADE TEMITOPE A**
+
+- GitHub: [@githubhandle](https://github.com/mckent05)
+- Twitter: [@twitterhandle](https://twitter.com/mckent05)
+- LinkedIn: [LinkedIn](https://linkedin.com/in/akinladetemitope)
+
 ## 🤝 Contributing
 
 Contributions, issues, and feature requests are welcome!
