@@ -1,4 +1,4 @@
-#<%if user_signed_in?%>
+<%if user_signed_in? %>
   
 <% @users.each do |user| %>
     <div class="user_con">
@@ -13,11 +13,11 @@
       </div>
     </div>
     <%end%>
-
-  # <%elsif user_signed_out?%>
-   #  <h1 class="notlogged-header"> Welcome to BlogApp </h1>
-    # <div class="notlooged-btn-container">
-     # <%= link_to "Log in", new_user_session_path, class:"notlogged-btn signin" %>
-     # <%= link_to "Create account", new_user_registration_path, class:"notlogged-btn create" %>
-      #</div>
-   # <%end %>
+ <%else%>
+     <h1 class="notlogged-header"> Welcome to BlogApp </h1>
+     <div class="notlooged-btn-container">
+     <%= link_to "Log in", new_user_session_path, class:"notlogged-btn signin" %>
+     <%= link_to "Create account", new_user_registration_path, class:"notlogged-btn create" %>
+      </div>
+<%end %>
+   

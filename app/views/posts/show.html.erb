@@ -1,3 +1,5 @@
+<%= if user_signed_in? %>
+
 <div class="user_con">
 <div class="user_data_post"> 
   <h2><%= @post.title %> by <span><%= @post.user.name %></span></h2>
@@ -15,3 +17,12 @@
 <%= render partial: "creation_of_comments", local: { post: @post } %>
 </div>
 </div>
+
+ <%else%>
+     <h1 class="notlogged-header"> Welcome to BlogApp </h1>
+     <div class="notlooged-btn-container">
+     <%= link_to "Log in", new_user_session_path, class:"notlogged-btn signin" %>
+     <%= link_to "Create account", new_user_registration_path, class:"notlogged-btn create" %>
+      </div>
+<%end %>
+   

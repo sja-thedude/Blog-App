@@ -1,3 +1,5 @@
+<%= if user_signed_in? %>
+
 <div class="user_con">
   <div class="user_img">
     <%= image_tag("image5.png", width:'150px', height:'200px') %>
@@ -28,3 +30,12 @@
       <%= link_to "See all posts", user_posts_path(@user), {:class => "button_class"} %>
   </button>
 </div>
+
+ <%else%>
+     <h1 class="notlogged-header"> Welcome to BlogApp </h1>
+     <div class="notlooged-btn-container">
+     <%= link_to "Log in", new_user_session_path, class:"notlogged-btn signin" %>
+     <%= link_to "Create account", new_user_registration_path, class:"notlogged-btn create" %>
+      </div>
+<%end %>
+   
