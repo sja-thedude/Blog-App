@@ -13,7 +13,6 @@ class User < ApplicationRecord
     Post.last(3)
   end
 
-
   def admin?
     :role == 'admin'
   end

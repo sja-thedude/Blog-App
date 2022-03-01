@@ -7,7 +7,7 @@ class CommentsController < ApplicationController
     @post = Post.find(params[:post_id])
     new_comment = @post.comments.new(
       text: comment_params,
-      user_id: current_user.id,
+      user_id: current_user.id
     )
     new_comment.update_comments_counter
     if new_comment.save
@@ -22,7 +22,7 @@ class CommentsController < ApplicationController
     @comment.destroy!
     flash[:success] = 'You have deleted this post!'
     redirect_to user_path(current_user.id)
-  end  
+  end
 
   private
 

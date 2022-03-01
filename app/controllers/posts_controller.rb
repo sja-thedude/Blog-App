@@ -29,7 +29,7 @@ class PostsController < ApplicationController
     flash[:success] = 'You have deleted this post!'
     redirect_to user_path(current_user.id)
   end
-    
+
   private
 
   def post_params
