@@ -12,4 +12,9 @@ class User < ApplicationRecord
   def recent_3_posts
     Post.last(3)
   end
+
+
+  def admin?
+    :role == 'admin'
+  end
 end
