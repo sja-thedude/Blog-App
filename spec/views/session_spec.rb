@@ -1,5 +1,3 @@
-# _string_literal: true
-
 require 'rails_helper'
 
 RSpec.describe 'Login', type: :feature do

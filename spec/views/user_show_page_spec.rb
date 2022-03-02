@@ -1,4 +1,3 @@
-# _string_literal: true
 =begin
 require 'rails_helper'
 
