@@ -5,9 +5,8 @@ class PostsController < ApplicationController
   end
 
   def show
-    @post = Post.find(params[:id])
-    @user = @post.user
-    @comments = @post.comments
+    @user = User.find(params[:user_id])
+    @post = @user.posts.includes(comments: [:user]).find(params[:id])
   end
 
   def new
@@ -30,9 +29,19 @@ class PostsController < ApplicationController
     end
   end
 
+  def destroy
+    post = Post.find(params[:id])
+    user = User.find(post.user_id)
+    user.posts_counter -= 1
+    post.destroy
+    user.save
+    flash[:success] = 'You have deleted this post!'
+    redirect_to user_path(current_user.id)
+  end
+
   private
 
   def post_params
-    params.require(:data).permit(:title, :text)
+    params.require(:post).permit(:title, :text)
   end
 end
