@@ -3,23 +3,32 @@ require 'rails_helper'
 RSpec.describe 'Login', type: :feature do
   describe 'User' do
     before(:each) do
-      @user1 = User.create( name: 'Sja', password: '215234', bio: 'I am Software Engineer',
-                            email: 'sja@gmail.com', confirmed_at: Time.now)
+      @user1 = User.create(name: 'Sja', password: '215234', bio: 'I am Software Engineer',
+                           email: 'sja@gmail.com', confirmed_at: Time.now)
       visit root_path
       fill_in 'Email', with: 'sja@gmail.com'
       fill_in 'Password', with: '215234'
       click_button 'Log in'
 
       @post1 = Post.create(title: 'To Be',
-                                    text: 'The big question is: "To be or not to be a Ruby programmer"', comments_counter: 0, likes_counter: 0, user: @user1)
+                           text: 'The big question is:
+                          "To be or not to be a Ruby programmer"',
+                           comments_counter: 0, likes_counter: 0, user: @user1)
       @post2 = Post.create(title: 'Hello',
-                                    text: 'Why people say HTML is not a programming language..."', comments_counter: 0, likes_counter: 0, user: @user1)
+                           text: 'Why people say HTML
+                           is not a programming language..."',
+                           comments_counter: 0,
+                           likes_counter: 0, user: @user1)
       @post3 = Post.create(title: 'Hey',
-                                    text: 'With the clif hanger seen in the first half of season 4, do you think..."', comments_counter: 0, likes_counter: 0, user: @user1)
+                           text: 'With the clif hanger seen in
+                           the first half of season 4, do you think..."',
+                           comments_counter: 0,
+                           likes_counter: 0, user: @user1)
 
-      @comment1 = Comment.create(text: 'This is the first comment for the first post', user: User.first , post: Post.first)
-      @comment2 = Comment.create(text: 'This is the second comment', user: User.first , post: Post.first)
-      @comment3 = Comment.create(text: 'This is the third comment', user: User.first , post: Post.first)
+      @comment1 = Comment.create(text: 'This is the first comment for the first post', user: User.first,
+                                 post: Post.first)
+      @comment2 = Comment.create(text: 'This is the second comment', user: User.first, post: Post.first)
+      @comment3 = Comment.create(text: 'This is the third comment', user: User.first, post: Post.first)
 
       visit user_posts_path(@user1)
     end
@@ -40,7 +49,6 @@ RSpec.describe 'Login', type: :feature do
 
     it 'shows number of posts by user' do
       user = User.first
-      post = user.posts
       expect(page).to have_content(user.posts_counter)
     end
 
@@ -58,13 +66,11 @@ RSpec.describe 'Login', type: :feature do
     end
 
     it 'can see how many comments a post has.' do
-      user = User.first
       post = Post.first
       expect(page).to have_content(post.comments_counter)
     end
 
     it 'can see how many likes a post has.' do
-      user = User.first
       post = Post.first
       expect(page).to have_content(post.likes_counter)
     end
