@@ -1,22 +1,21 @@
-=begin
 require 'rails_helper'
 
 RSpec.describe 'Login', type: :feature do
   describe 'User' do
     before(:each) do
-      @user1 = User.create! name: 'Sja', password: '215234', bio: 'I am Software Engineer',
-                            email: 'sja@gmail.com', confirmed_at: Time.now
+      @user1 = User.create( name: 'Sja', password: '215234', bio: 'I am Software Engineer',
+                            email: 'sja@gmail.com', confirmed_at: Time.now)
       visit root_path
       fill_in 'Email', with: 'sja@gmail.com'
       fill_in 'Password', with: '215234'
       click_button 'Log in'
 
-      @post1 = @user1.posts.create!(title: 'To Be',
-                                    text: 'The big question is: "To be or not to be a Ruby programmer"')
-      @post2 = @user1.posts.create!(title: 'Hello',
-                                    text: 'Why people say HTML is not a programming language..."')
-      @post3 = @user1.posts.create!(title: 'Hey',
-                                    text: 'With the clif hanger seen in the first half of season 4, do you think..."')
+      @post1 = Post.create(title: 'To Be',
+                                    text: 'The big question is: "To be or not to be a Ruby programmer"', comments_counter: 0, likes_counter: 0, user: @user1)
+      @post2 = Post.create(title: 'Hello',
+                                    text: 'Why people say HTML is not a programming language..."', comments_counter: 0, likes_counter: 0, user: @user1)
+      @post3 = Post.create(title: 'Hey',
+                                    text: 'With the clif hanger seen in the first half of season 4, do you think..."', comments_counter: 0, likes_counter: 0, user: @user1)
 
       visit user_path(@user1.id)
     end
@@ -31,7 +30,9 @@ RSpec.describe 'Login', type: :feature do
     end
 
     it 'shows number of posts for each user' do
-      expect(page).to have_content('Number of posts: 3')
+      user = User.first
+      post = Post.first
+      expect(page).to have_content(user.posts_counter)
     end
 
     it 'shows the users bio' do
@@ -53,11 +54,5 @@ RSpec.describe 'Login', type: :feature do
       click_link 'See all posts'
       expect(page).to have_current_path user_posts_path(@user1)
     end
-
-    it 'When I click to see all posts, it redirects me to the user\'s post\'s show page.' do
-      click_link 'To Be'
-      expect(page).to have_current_path user_post_path(@user1, @post1)
-    end
   end
 end
-=end
