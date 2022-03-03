@@ -2,6 +2,12 @@ source 'https://rubygems.org'
 git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
 ruby '3.0.0'
+gem 'sass-rails'
+gem 'uglifier'
+gem 'coffee-rails'
+
+gem 'devise-jwt'
+gem 'rack-cors'
 
 gem 'rubocop', '>= 1.0', '< 2.0'
 
@@ -77,6 +83,9 @@ end
 group :test do
   # Use system testing [https://guides.rubyonrails.org/testing.html#system-testing]
   gem 'capybara'
+  gem 'factory_bot_rails'
+  gem 'faker'
   gem 'selenium-webdriver'
+  gem 'shoulda-matchers'
   gem 'webdrivers'
 end
